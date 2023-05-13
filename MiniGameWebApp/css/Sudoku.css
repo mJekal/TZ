@@ -1,16 +1,24 @@
-
 * {
     font-family: Lucida Sans, Arial, Helvetica, sans-serif;
 }
 
 body {
-    margin: 50px auto;
     background-color: #ffffff;
 }
 
+body h1 {
+	text-align:center;
+    font-size: 108px;
+    margin: 0px;
+}
 
 table{
+	margin-right:auto;
+	margin-left:auto;
     border: 1px solid black;
+    width: 800px;
+    height: 800px;
+    margin-bottom:40px;
 }
 
 td{
@@ -24,14 +32,10 @@ input{
     text-align: center;
     width: 48px;
     height: 48px;
-    font-size: 25px;
+    font-size: 35px;
 }
 
-#cell_19, #cell_20, #cell_21, #cell_22, #cell_23, #cell_24, #cell_25, #cell_26, #cell_27
-,#cell_46, #cell_47, #cell_48, #cell_49, #cell_50, #cell_51, #cell_52, #cell_53, #cell_54
-,#cell_73, #cell_74, #cell_75, #cell_76, #cell_77, #cell_78, #cell_79, #cell_80, #cell_81 {
-    border-bottom: 2px solid black;
-}
+
 
 td:nth-of-type(3),
 td:nth-of-type(6),
@@ -47,16 +51,26 @@ td:nth-last-of-type(6) {
 
 .board-input {
     color: darkblue;
+    font-size: 35px;
 }
 
 .wrong-answer {
     color: red;
 }
 
+#form {
+  position: absolute;
+  right: 40%;
+  left: 40%;
+}
+
+
 #submit {
-    margin-top: 30px;
-    margin-left: 10px;
-    width: 100px;
-    font-size: 15px;
+	width:300px;
+	height:50px;
+    font-size: 35px;
     color: black;
 }
+
+
+

@@ -1,3 +1,36 @@
+var curCell = document.getElementById('cell_1');
+curCell.focus();
+
+document.addEventListener('keydown', function(e) {
+  var keyCode = e.keyCode;
+  var cellNumber = parseInt(curCell.id.split("_")[1]);
+  var row = Math.floor((cellNumber - 1) / 9);
+  var col = (cellNumber - 1) % 9;
+  
+  switch(keyCode) {
+    case 37:
+      col = col === 0 ? 8 : col - 1;
+      break;
+    case 38:
+      row = row === 0 ? 8 : row - 1;
+      break;
+    case 39:
+      col = col === 8 ? 0 : col + 1;
+      break;
+    case 40:
+      row = row === 8 ? 0 : row + 1;
+      break;
+    default:
+      return;
+  }
+  
+  var nextCellNumber = row * 9 + col + 1;
+  var nextCell = document.getElementById('cell_' + nextCellNumber);
+  nextCell.focus();
+  currentCell = nextCell;
+});
+
+
 var sudokuBoard = [
     "1------45",
     "--45-17-2",
@@ -44,10 +77,10 @@ function checkAnswer() {
         }
     }
     if (cnt === 0) {
-        alert('정답입니다!');
+        window.alert('정답입니다!');
     }
     else {
-        alert('다시 해보세요');
+        window.alert('틀렸습니다. 다시 해보세요');
     }
 }
 

@@ -27,7 +27,7 @@ document.addEventListener('keydown', function(e) {
   var nextCellNumber = row * 9 + col + 1;
   var nextCell = document.getElementById('cell_' + nextCellNumber);
   nextCell.focus();
-  currentCell = nextCell;
+  curCell = nextCell;
 });
 
 

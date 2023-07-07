@@ -1,5 +1,6 @@
 * {
     font-family: Lucida Sans, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 body {
@@ -16,22 +17,51 @@ article p {
     clear: both;
 }
 
-#Sudoku {
-	width:300px;
-	height: 300px;
-	background-color: red;
-}
-
-#NumberBaseball {
-	width:300px;
-	height: 300px;
-	background-color: blue;
-}
-
-
 footer p {
     text-align: center;
     font-size: 36px;
     color: #888;
     margin-top: 30px;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.GameBox {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px #788F99;
+    margin: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.GameBox:hover {
+    transform: translateY(-5px);
+}
+
+.GameName {
+    background-color: #ADC5CF;
+    text-align: center;
+    color: black;
+    padding: calc(30% - 30px);
+    font: bold 30px;
+    margin-top: 0;
+}
+
+.GameDescription {
+    background-color: white;
+    text-align: center;
+    color: gray;
+    padding: 10px;
+    font-size: 16px;
 }

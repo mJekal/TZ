@@ -1,8 +1,59 @@
+
+
 var form = document.getElementById("form");
 var input = document.getElementById("input");
-var tdList = document.querySelectorAll("[id^='td']");
-var tdScoreList = document.querySelectorAll("[id^='tscore']");
+var tdScoreList;
 var result = document.getElementById("result");
+var tableBody = document.querySelector("table");
+var tdList;
+
+function addTableRow() {
+    var tableHeaderRow = document.createElement("tbody");
+
+    var thAttempt = document.createElement("th");
+    thAttempt.textContent = "시도";
+
+    var thMyNumber = document.createElement("th");
+    thMyNumber.textContent = "my number";
+
+    var thResult = document.createElement("th");
+    thResult.textContent = "결과";
+
+    tableHeaderRow.appendChild(thAttempt);
+    tableHeaderRow.appendChild(thMyNumber);
+    tableHeaderRow.appendChild(thResult);
+    
+    tableBody.appendChild(tableHeaderRow);
+
+    for (var i = 0; i <= 8; i++) {
+        var newRow = document.createElement("tr");
+
+        var tdAttempt = document.createElement("td");
+        tdAttempt.textContent = i + 1; 
+
+        var tdNumber = document.createElement("td");
+        tdNumber.id = "td" + (i + 1); 
+        tdNumber.textContent = '';
+
+        var tdResult = document.createElement("td");
+        tdResult.id = "tscore" + (i + 1);  
+        tdResult.textContent = '';
+
+        newRow.appendChild(tdAttempt);
+        newRow.appendChild(tdNumber);
+        newRow.appendChild(tdResult);
+        tableBody.appendChild(newRow);
+    }
+    
+    tdList = document.querySelectorAll("[id^='td']");
+    tdScoreList = document.querySelectorAll("[id^='tscore']");
+}
+
+
+
+addTableRow();
+
+
 
 // 리모컨 버튼 눌렀을 때
 document.addEventListener('keydown', function(e) {
@@ -60,12 +111,14 @@ function makeAnswer() {
 	}
 }
 
+
 // 게임 시작 : 스트라이크, 볼 초기화
 function start(td, td_score) {
 	var strike = 0;
 	var ball = 0;
+    console.log(td);
 	td.innerHTML = input.value;
-
+    console.log(input.value);
 	// 정답과 제출한 숫자가 정확하게 일치 (홈런)
 	if (input.value === answer_st) {
 		td_score.textContent = "Home Run!";
